@@ -1,11 +1,13 @@
 module Gmpoint
   class Engine < Rails::Engine
-    ## Code starts here
     
-    ActiveRecord::Base.instance_eval do
-      def super_function
-        true
-      end
+    ActiveRecord::Base.extend(Gmpoint::ClassMethods)
+    
+    ActiveRecord::Base.class_eval do
+      include ActionView::Helpers::JavaScriptHelper
     end
+    
+    ActionController::Base.extend(Gmpoint::ControllerMethods)
+    
   end
 end
