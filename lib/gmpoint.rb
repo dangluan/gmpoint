@@ -1,10 +1,6 @@
 require 'gmpoint/gmpoint_controller'
-require 'gmpoint/gmpoint_model'
 module Gmpoint
   class Engine < Rails::Engine
-    
-    ActiveRecord::Base.extend(Gmpoint::ClassMethod)
-    
     ActiveRecord::Base.class_eval do
       include ActionView::Helpers::JavaScriptHelper
     end
