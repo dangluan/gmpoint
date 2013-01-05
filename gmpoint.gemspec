@@ -58,7 +58,6 @@ Gem::Specification.new do |s|
     "app/assets/stylesheets/scaffolds.css.scss",
     "app/controllers/tests_controller.rb",
     "app/helpers/gmpoint/gmpoint_helper.rb",
-    "gmpoint-0.0.1.gem",
     "gmpoint.gemspec",
     "lib/generators/gmpoint/install_generator.rb",
     "lib/gmpoint.rb",
