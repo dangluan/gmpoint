@@ -1,5 +1,5 @@
 module Gmpoint
-  module ClassMethods
+  module ClassMethod
     def init_point
       attr_accessible :address, :latitude, :longitude
       geocoded_by :address
