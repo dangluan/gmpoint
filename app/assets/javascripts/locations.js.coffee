@@ -1,19 +1,50 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-$ ->
+window.initJsMap = ->
+  $("#geopoint_search_box_container input").keypress (e) ->
+    if e.keyCode == 13 # enter
+      window.geopoint_search_map($(@))      
   opts = 
     center: new google.maps.LatLng($('.data-location').data('latitude'), $('.data-location').data('longitude'))
     zoom: $('.data-location').data('zoom')
     mapTypeId: google.maps.MapTypeId.ROADMAP
     
-  map = new google.maps.Map(document.getElementById("map_canvas"), opts)
-  map.setOptions({draggableCursor: 'url(http://maps.gstatic.com/mapfiles/crosshair.cur), default'})
-  google.maps.event.addListener map, "click", (event) ->
+    
+  window.gmpoint_map = new google.maps.Map(document.getElementById("map_canvas"), opts)
+  window.gmpoint_map.setOptions({draggableCursor: 'url(http://maps.gstatic.com/mapfiles/crosshair.cur), default'})
+  window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: true})
+  window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition(), 16)
+  window.gmpoint_info_window = new google.maps.InfoWindow({
+    size: new google.maps.Size(20, 20)
+  })
+  window.gmpoint_info_window.close()
+  
+  window.gmpoint_marker.setMap(window.gmpoint_map)  
+  google.maps.event.addListener window.gmpoint_map, "click", (event) ->
     latlng = event.latLng
-    $.get "/locations/add_new_point_to_map?latitude=" + latlng.lat() + "&longitude=" + latlng.lng(), (response) ->
-      $.fancybox response,
-        width: 500
-        height: 50
-        hideOnContentClick: false
-        autoDimensions: false
+    window.geopoint_handle(latlng)
+
+window.geopoint_search_map = (dom) ->
+  addressField = $(dom)
+  geocoder = new google.maps.Geocoder()
+  geocoder.geocode {address: addressField.val()}, (results, status) -> 
+    if status == google.maps.GeocoderStatus.OK
+      loc = results[0].geometry.location
+      window.gmpoint_marker.setPosition(loc)
+      window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition())
+      point = loc
+      window.geopoint_handle(point)
+      
+window.geopoint_handle = (attr)->
+  $("#gmpoint_location_latitude").val(attr.lat())
+  $("#gmpoint_location_longitude").val(attr.lng())
+  window.gmpoint_marker.setPosition(attr)    
+  geocoder = new google.maps.Geocoder()
+  window.gmpoint_info_window.open(window.gmpoint_map, window.gmpoint_marker)
+  window.gmpoint_info_window.setContent("Loading...")
+  geocoder.geocode {'latLng': attr}, (results, status) ->     
+    if status == google.maps.GeocoderStatus.OK
+      if results[1]  
+        window.gmpoint_info_window.setContent(results[0].formatted_address)
+        $("#gmpoint_location_address").val(results[0].formatted_address)

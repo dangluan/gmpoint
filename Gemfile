@@ -13,3 +13,4 @@ group :development do
 end
 
 gem 'geocoder'
+gem 'new_responds_to_parent'

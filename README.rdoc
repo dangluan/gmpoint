@@ -1,5 +1,11 @@
 = gmpoint
 
+* gem 'gmpoint'
+* bundle install
+* rails g gmpoint:install
+* rails g gmpoint User
+* add attr_accessible :location_latitude, :location_longitude, :location_address inside your model
+
 Description goes here.
 
 == Contributing to gmpoint
