@@ -1,6 +1,7 @@
 module Gmpoint
   module ControllerMethod
-    def help_to_point_on_map
+    
+    def init_map
       if params[:search].present?
         location = Geocoder.search(params[:search])
         if location.empty?
@@ -15,5 +16,13 @@ module Gmpoint
         @zoom = 3
       end
     end
+    
+    def add_new_point_to_map
+      param = [params[:latitude], params[:longitude]].join(", ")
+      location = Geocoder.search(param)
+      @address = location[0].address
+      render partial: "/locations/add_new_point_to_map"
+    end
+    
   end
 end
