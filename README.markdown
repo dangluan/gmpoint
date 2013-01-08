@@ -3,7 +3,7 @@
 This is gem for help to point on google map. You can marker your address and search your location
 
 ## Installation
-	### in your Gemfile
+### in your Gemfile
 		gem 'gmpoint', git: 'git@github.com:dangluan/gmpoint.git'
 		
 ## Setting Up
