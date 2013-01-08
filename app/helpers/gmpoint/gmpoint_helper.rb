@@ -11,7 +11,7 @@ module Gmpoint::GmpointHelper
     opts = {allow: 'show', searchbox: 'show', width: 800, height: 400, latitude: 1.3667, longitude: 103.75, zoom: 13, style: "border: 1px solid #green;", searchbox_width: 400}.merge(opts)
     [
       content_tag(:div, :id => "geopoint_search_box_container", style: "width: #{opts[:searchbox_width]}px; margin: 0 auto; margin-bottom: 10px; display: #{opts[:searchbox]}") do
-        tag(:input, type: :text, placeholder: 'Search', id: "gmpoint_#{model_name}_search_box", style: "width: #{opts[:search_box_width]}px; border:1px solid #{:color};")
+        tag(:input, type: :text, placeholder: 'Search', id: "gmpoint_#{model_name}_search_box", style: "width: #{opts[:searchbox_width]}px; border:1px solid #{:color};")
       end,      
       content_tag(:div, '', id: "map_canvas", style: "width: #{opts[:width]}px; height: #{opts[:height]}px; #{opts[:style]}"),
       content_tag(:div, '', class: "data-location", data: {model: model_name, latitude: opts[:latitude] , longitude: opts[:longitude] , zoom: opts[:zoom]}),
