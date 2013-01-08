@@ -12,7 +12,6 @@ window.initJsMap = ->
     
     
   window.gmpoint_map = new google.maps.Map(document.getElementById("map_canvas"), opts)
-  window.gmpoint_map.setOptions({draggableCursor: 'url(http://maps.gstatic.com/mapfiles/crosshair.cur), default'})
   window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: false})
   window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition(), 16)
   window.gmpoint_info_window = new google.maps.InfoWindow({
