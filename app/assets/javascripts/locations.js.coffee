@@ -12,7 +12,7 @@ window.initJsMap = ->
     
     
   window.gmpoint_map = new google.maps.Map(document.getElementById("map_canvas"), opts)
-  window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: false})
+  window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: true})
   window.gmpoint_info_window = new google.maps.InfoWindow({})
   window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition(), 16)
   window.gmpoint_info_window.close()
@@ -38,9 +38,6 @@ window.geopoint_search_map = (dom) ->
 window.geopoint_handle = (attr)->
   $("#gmpoint_location_latitude").val(attr.lat())
   $("#gmpoint_location_longitude").val(attr.lng())
-  window.gmpoint_info_window = new google.maps.InfoWindow({
-    size: new google.maps.Size(20, 20)
-  })
   window.gmpoint_marker.setPosition(attr)    
   geocoder = new google.maps.Geocoder()
   if $("#gmpoint_map_allow").attr('value') == "point"
