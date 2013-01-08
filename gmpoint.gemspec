@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Dang"]
-  s.date = "2013-01-05"
+  s.date = "2013-01-08"
   s.description = "Help to point on Goolge Map Description"
   s.email = "peter@rubify.com"
   s.extra_rdoc_files = [
@@ -26,43 +26,15 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/assets/.DS_Store",
-    "app/assets/images/blank.gif",
-    "app/assets/images/fancy_close.png",
-    "app/assets/images/fancy_loading.png",
-    "app/assets/images/fancy_nav_left.png",
-    "app/assets/images/fancy_nav_right.png",
-    "app/assets/images/fancy_shadow_e.png",
-    "app/assets/images/fancy_shadow_n.png",
-    "app/assets/images/fancy_shadow_ne.png",
-    "app/assets/images/fancy_shadow_nw.png",
-    "app/assets/images/fancy_shadow_s.png",
-    "app/assets/images/fancy_shadow_se.png",
-    "app/assets/images/fancy_shadow_sw.png",
-    "app/assets/images/fancy_shadow_w.png",
-    "app/assets/images/fancy_title_left.png",
-    "app/assets/images/fancy_title_main.png",
-    "app/assets/images/fancy_title_over.png",
-    "app/assets/images/fancy_title_right.png",
-    "app/assets/images/fancybox-x.png",
-    "app/assets/images/fancybox-y.png",
-    "app/assets/images/fancybox.png",
-    "app/assets/images/fancybox/fancybox.png",
-    "app/assets/images/plus.png",
-    "app/assets/images/rails.png",
-    "app/assets/javascripts/jquery.fancybox-1.3.4.js",
-    "app/assets/javascripts/jquery.mousewheel-3.0.4.pack.js",
     "app/assets/javascripts/locations.js.coffee",
-    "app/assets/stylesheets/application.css",
-    "app/assets/stylesheets/jquery.fancybox-1.3.1.css",
-    "app/assets/stylesheets/locations.css.scss",
-    "app/assets/stylesheets/scaffolds.css.scss",
-    "app/controllers/tests_controller.rb",
+    "app/assets/stylesheets/locations.css",
     "app/helpers/gmpoint/gmpoint_helper.rb",
     "gmpoint.gemspec",
+    "lib/generators/active_record/gmpoint_generator.rb",
+    "lib/generators/active_record/templates/migration.rb",
+    "lib/generators/gmpoint/gmpoint_generator.rb",
     "lib/generators/gmpoint/install_generator.rb",
     "lib/gmpoint.rb",
-    "lib/gmpoint/gmpoint_controller.rb",
-    "lib/gmpoint/gmpoint_model.rb",
     "test/helper.rb",
     "test/test_gmpoint.rb"
   ]
@@ -77,12 +49,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<geocoder>, [">= 0"])
+      s.add_runtime_dependency(%q<new_responds_to_parent>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.2.1"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
     else
       s.add_dependency(%q<geocoder>, [">= 0"])
+      s.add_dependency(%q<new_responds_to_parent>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.2.1"])
@@ -90,6 +64,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<geocoder>, [">= 0"])
+    s.add_dependency(%q<new_responds_to_parent>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.2.1"])
