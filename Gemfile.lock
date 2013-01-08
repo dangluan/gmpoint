@@ -19,6 +19,7 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.5.0)
+    new_responds_to_parent (0.1.5)
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
@@ -37,5 +38,6 @@ DEPENDENCIES
   bundler (~> 1.2.1)
   geocoder
   jeweler (~> 1.8.4)
+  new_responds_to_parent
   rdoc (~> 3.12)
   shoulda
