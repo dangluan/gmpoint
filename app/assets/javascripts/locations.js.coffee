@@ -13,17 +13,19 @@ window.initJsMap = ->
     
   window.gmpoint_map = new google.maps.Map(document.getElementById("map_canvas"), opts)
   window.gmpoint_map.setOptions({draggableCursor: 'url(http://maps.gstatic.com/mapfiles/crosshair.cur), default'})
-  window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: true})
+  window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: false})
   window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition(), 16)
   window.gmpoint_info_window = new google.maps.InfoWindow({
     size: new google.maps.Size(20, 20)
   })
   window.gmpoint_info_window.close()
-  
-  window.gmpoint_marker.setMap(window.gmpoint_map)  
-  google.maps.event.addListener window.gmpoint_map, "click", (event) ->
-    latlng = event.latLng
-    window.geopoint_handle(latlng)
+  window.gmpoint_marker.setMap(window.gmpoint_map)
+  if $("#gmpoint_map_allow").attr('value') == "point"
+    google.maps.event.addListener window.gmpoint_map, "click", (event) ->
+      latlng = event.latLng
+      window.geopoint_handle(latlng)
+  else
+    window.geopoint_search_map($("#gmpoint_location_address"))
 
 window.geopoint_search_map = (dom) ->
   addressField = $(dom)
