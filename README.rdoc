@@ -1,29 +1,27 @@
-= gmpoint
-
-* gem 'gmpoint'
-* bundle install
-* rails g gmpoint:install
-* rails g gmpoint User
-* add attr_accessible :location_latitude, :location_longitude, :location_address inside your model
-
-= Usage
-* Add code below into application.html.erb
-	<%= google_map_api_js(your google api key code) %>
+== Getting started
+ 1. Install gmpoint gem:
+		* gem 'gmpoint'
+		* bundle install
+		* rails g gmpoint:install
+		* rails g gmpoint MODEL
+		* add attr_accessible :location_latitude, :location_longitude, :location_address inside your model
+		* rake db:migrate
+ 2. Add code below into application.html.erb :
+		<%= google_map_api_js(your google api key code) %>
 	EX:
 			<%= google_map_api_js("AIzaSyA344yCug0-GhjW3XJyZmkLWLN_qtA_ziM") %>
-* Add code below into anywhere you want 
-  <%= show_map_helper your_model %>
+ 3. Add code below into anywhere you want :
+  	<%= show_map_helper your_model %>
 
   EX:
- <%= show_map_helper :users %>
+ 			<%= show_map_helper :users %>
 
-  You can set options for view
-	width , height for map view
-	search_box_with for search box
+  		You can set options for view
+				width , height for map view
+				search_box_with for search box
 		
-	  EX:
-	<%= show_map_helper :users, {width: 400, height: 200, search_box_width: 300} %>
-Description goes here.
+	  		EX:
+					<%= show_map_helper :users, {width: 400, height: 200, search_box_width: 300} %>
 
 == Contributing to gmpoint
  
