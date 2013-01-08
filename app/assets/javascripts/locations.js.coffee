@@ -14,9 +14,6 @@ window.initJsMap = ->
   window.gmpoint_map = new google.maps.Map(document.getElementById("map_canvas"), opts)
   window.gmpoint_marker = new google.maps.Marker({position: opts.center, draggable: false})
   window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition(), 16)
-  window.gmpoint_info_window = new google.maps.InfoWindow({
-    size: new google.maps.Size(20, 20)
-  })
   window.gmpoint_info_window.close()
   window.gmpoint_marker.setMap(window.gmpoint_map)
   if $("#gmpoint_map_allow").attr('value') == "point"
@@ -40,9 +37,15 @@ window.geopoint_search_map = (dom) ->
 window.geopoint_handle = (attr)->
   $("#gmpoint_location_latitude").val(attr.lat())
   $("#gmpoint_location_longitude").val(attr.lng())
+  window.gmpoint_info_window = new google.maps.InfoWindow({
+    size: new google.maps.Size(20, 20)
+  })
   window.gmpoint_marker.setPosition(attr)    
   geocoder = new google.maps.Geocoder()
-  window.gmpoint_info_window.open(window.gmpoint_map, window.gmpoint_marker)
+  if $("#gmpoint_map_allow").attr('value') == "point"
+    window.gmpoint_info_window.open(window.gmpoint_map, window.gmpoint_marker)
+  else
+    
   window.gmpoint_info_window.setContent("Loading...")
   geocoder.geocode {'latLng': attr}, (results, status) ->     
     if status == google.maps.GeocoderStatus.OK
