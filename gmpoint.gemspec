@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.email = "peter@rubify.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
+    "README.markdown",
     "README.rdoc"
   ]
   s.files = [
@@ -22,6 +23,7 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
+    "README.markdown",
     "README.rdoc",
     "Rakefile",
     "VERSION",
