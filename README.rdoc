@@ -1,11 +1,11 @@
 == Getting started
  1. Install gmpoint gem:
-		* gem 'gmpoint'
-		* bundle install
-		* rails g gmpoint:install
-		* rails g gmpoint MODEL
-		* add attr_accessible :location_latitude, :location_longitude, :location_address inside your model
-		* rake db:migrate
+	gem 'gmpoint', '0.0.2'
+	bundle install
+	rails g gmpoint:install
+	rails g gmpoint MODEL
+	add attr_accessible :location_latitude, :location_longitude, :location_address inside your model
+	rake db:migrate
  2. Add code below into application.html.erb :
 		<%= google_map_api_js(your google api key code) %>
 	EX:
