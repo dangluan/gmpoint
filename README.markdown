@@ -30,15 +30,15 @@ This is gem for help to point on google map. You can marker your address and sea
 		* You can show or hidden your search box
 		
 			<%= show_map_helper :users, {searchbox: 'show', width: 400, height: 200, searchbox_width: 300} %>
-			and hidden
 			
+			and when you want to hidden
 			<%= show_map_helper :users, {searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
 			
 		* You can only set show or point to map using "allow"
 		
 			<%= show_map_helper :users, {allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
 			
-			and point
+			and when you want to point
 			<%= show_map_helper :users, {allow: 'point', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
 			
 		Example:
