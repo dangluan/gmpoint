@@ -15,7 +15,19 @@ This is gem for help to point on google map. You can marker your address and sea
 
 ## Usage
 
-### Add code below into application.html.erb :
+### Registry google map key and add google map key in your head tag in application.html.erb
+
+    <%= google_map_api_js("your google api key") %>
+    
+### Require locations.coffee.js into your application.js
+
+    .....
+    //= require locations
+    .....
+    
+
+### Add code below into any where if you want to display the map :
+
 		<%= show_map_helper your_model %>
 		
 		Example:
