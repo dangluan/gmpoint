@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Dang"]
-  s.date = "2013-01-08"
+  s.date = "2013-02-04"
   s.description = "Help to point on Goolge Map Description"
   s.email = "peter@rubify.com"
   s.extra_rdoc_files = [
