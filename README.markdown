@@ -57,3 +57,10 @@ This is gem for help to point on google map. You can marker your address and sea
 	Example:
 		<%= show_map_helper :users, {width: 400, height: 200, searchbox_width: 300} %>
 		
+#### You can set latitude and longitude default for your place
+
+    <%= show_map_helper :users, {latitude: 1.3028, longitude: 103.35, allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
+    
+#### You can set zoom for map
+    
+    <%= show_map_helper :users, {zoom: 10, latitude: 1.3028, longitude: 103.35, allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>

@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 window.initJsMap = ->
+  window.geopoint_search_map($("#gmpoint_location_address"))
   $("#geopoint_search_box_container input").keypress (e) ->
     if e.keyCode == 13 # enter
       window.geopoint_search_map($(@))      

@@ -10,13 +10,13 @@ module Gmpoint::GmpointHelper
     @address = object.location_address
     @latitude = object.location_latitude
     @longitude = object.location_longitude
-    opts = {allow: 'show', searchbox: 'show', width: 800, height: 400, latitude: "#{@latitude}", longitude: "#{@longitude}", zoom: 13, style: "border: 1px solid #green;", searchbox_width: 400}.merge(opts)
+    opts = {allow: 'show', searchbox: 'show', width: 800, height: 400, latitude: "#{@latitude}", longitude: "#{@longitude}", address: "#{@address}" zoom: 13, style: "border: 1px solid #green;", searchbox_width: 400}.merge(opts)
     [
       content_tag(:div, :id => "geopoint_search_box_container", style: "width: #{opts[:searchbox_width]}px; margin: 0 auto; margin-bottom: 10px; display: #{opts[:searchbox]}") do
         tag(:input, type: :text, placeholder: 'Search', id: "gmpoint_#{model_name}_search_box", style: "width: #{opts[:searchbox_width]}px; border:1px solid #{:color};")
       end,      
       content_tag(:div, '', id: "map_canvas", style: "width: #{opts[:width]}px; height: #{opts[:height]}px; #{opts[:style]}"),
-      content_tag(:div, '', class: "data-location", data: {model: model_name, latitude: opts[:latitude] , longitude: opts[:longitude] , zoom: opts[:zoom]}),
+      content_tag(:div, '', class: "data-location", data: {model: model_name, address:opts[:address], latitude: opts[:latitude] , longitude: opts[:longitude], zoom: opts[:zoom]}),
       tag(:input, type: :hidden, value: "#{opts[:allow]}", name: "allow", id: "gmpoint_map_allow"),
       tag(:input, type: :hidden, value: "#{@latitude}", name: "#{model_name}[location_latitude]", id: "gmpoint_location_latitude"),
       tag(:input, type: :hidden, value: "#{@longitude}", name: "#{model_name}[location_longitude]", id: "gmpoint_location_longitude"),
