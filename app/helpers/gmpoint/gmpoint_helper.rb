@@ -8,6 +8,8 @@ module Gmpoint::GmpointHelper
     
     object = model_name.to_s.singularize.classify.constantize.find(params[:id])
     @address = object.location_address
+    @latitude = object.location_latitude
+    @longitude = object.location_longitude
     opts = {allow: 'show', searchbox: 'show', width: 800, height: 400, latitude: 1.3667, longitude: 103.75, zoom: 13, style: "border: 1px solid #green;", searchbox_width: 400}.merge(opts)
     [
       content_tag(:div, :id => "geopoint_search_box_container", style: "width: #{opts[:searchbox_width]}px; margin: 0 auto; margin-bottom: 10px; display: #{opts[:searchbox]}") do
@@ -16,8 +18,8 @@ module Gmpoint::GmpointHelper
       content_tag(:div, '', id: "map_canvas", style: "width: #{opts[:width]}px; height: #{opts[:height]}px; #{opts[:style]}"),
       content_tag(:div, '', class: "data-location", data: {model: model_name, latitude: opts[:latitude] , longitude: opts[:longitude] , zoom: opts[:zoom]}),
       tag(:input, type: :hidden, value: "#{opts[:allow]}", name: "allow", id: "gmpoint_map_allow"),
-      tag(:input, type: :hidden, value: '', name: "#{model_name}[location_latitude]", id: "gmpoint_location_latitude"),
-      tag(:input, type: :hidden, value: '', name: "#{model_name}[location_longitude]", id: "gmpoint_location_longitude"),
+      tag(:input, type: :hidden, value: "#{@latitude}", name: "#{model_name}[location_latitude]", id: "gmpoint_location_latitude"),
+      tag(:input, type: :hidden, value: "#{@longitude}", name: "#{model_name}[location_longitude]", id: "gmpoint_location_longitude"),
       tag(:input, type: :hidden, value: "#{@address}", name: "#{model_name}[location_address]", id: "gmpoint_location_address"),
       javascript_tag("window.initJsMap();")
     ].join.html_safe
