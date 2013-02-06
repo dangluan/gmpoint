@@ -22,8 +22,6 @@ window.initJsMap = ->
     google.maps.event.addListener window.gmpoint_map, "click", (event) ->
       latlng = event.latLng
       window.geopoint_handle(latlng)
-  else
-    window.geopoint_search_map($("#gmpoint_location_address"))
 
 window.geopoint_search_map = (dom) ->
   addressField = $(dom)
@@ -32,7 +30,7 @@ window.geopoint_search_map = (dom) ->
     if status == google.maps.GeocoderStatus.OK
       loc = results[0].geometry.location
       window.gmpoint_marker.setPosition(loc)
-      window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition())
+      window.gmpoint_map.setCenter(window.gmpoint_marker.getPosition(), 16)
       point = loc
       window.geopoint_handle(point)
       
