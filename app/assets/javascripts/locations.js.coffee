@@ -5,10 +5,14 @@ window.initJsMap = ->
   window.geopoint_search_map($("#gmpoint_location_address"))
   $("#geopoint_search_box_container input").keypress (e) ->
     if e.keyCode == 13 # enter
-      window.geopoint_search_map($(@))      
+      window.geopoint_search_map($(@))
+  
+  zoom = $('.data-location').data('zoom')
+  if $("#gmpoint_location_address").val() == ""
+    zoom = 11
   opts = 
     center: new google.maps.LatLng($('.data-location').data('latitude'), $('.data-location').data('longitude'))
-    zoom: $('.data-location').data('zoom')
+    zoom: zoom
     mapTypeId: google.maps.MapTypeId.ROADMAP
     
     
