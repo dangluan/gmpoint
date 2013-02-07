@@ -27,6 +27,9 @@ window.initJsMap = ->
       latlng = event.latLng
       window.geopoint_handle(latlng)
 
+window.mapResize = ->
+  google.maps.event.trigger(window.gmpoint_map, "resize");
+  
 window.geopoint_search_map = (dom) ->
   addressField = $(dom)
   geocoder = new google.maps.Geocoder()
