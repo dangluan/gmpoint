@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gmpoint"
-  s.version = "0.0.9"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Dang"]
-  s.date = "2013-02-07"
+  s.date = "2013-06-10"
   s.description = "Help to point on Goolge Map Description"
   s.email = "peter@rubify.com"
   s.extra_rdoc_files = [
@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/dangluan/gmpoint"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "Help to point on Google Map"
 
   if s.respond_to? :specification_version then
