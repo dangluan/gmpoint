@@ -1,18 +1,20 @@
 module Gmpoint::GmpointHelper
   
   def google_map_api_js(key="AIzaSyA344yCug0-GhjW3XJyZmkLWLN_qtA_ziM")
-    javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{key}&sensor=true"
+    javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{key}&sensor=false"
   end
   
-  def show_map_helper(model_name, opts={})
+  def show_map_helper(model, opts={})
     
-    object = model_name.to_s.singularize.classify.constantize.find(params[:id])
+    # object = model_name.to_s.singularize.classify.constantize.find(params[:id])
+    object = model
+    model_name = model.class.to_s.singularize
     @address = object.location_address
     @latitude = object.location_latitude
     @longitude = object.location_longitude
     opts = {allow: 'show', searchbox: 'show', width: 800, height: 400, latitude: "#{@latitude}", longitude: "#{@longitude}", address: "#{@address}", zoom: 13, style: "border: 1px solid #green;", searchbox_width: 400}.merge(opts)
     [
-      content_tag(:div, :id => "geopoint_search_box_container", style: "width: #{opts[:searchbox_width]}px; margin: 0 auto; margin-bottom: 10px; display: #{opts[:searchbox]}") do
+      content_tag(:div, :id => "geopoint_search_box_container", style: " display: #{opts[:searchbox]}") do
         tag(:input, type: :text, placeholder: 'Search', id: "gmpoint_#{model_name}_search_box", style: "width: #{opts[:searchbox_width]}px; border:1px solid #{:color};")
       end,      
       content_tag(:div, '', id: "map_canvas", style: "width: #{opts[:width]}px; height: #{opts[:height]}px; #{opts[:style]}"),

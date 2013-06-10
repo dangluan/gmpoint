@@ -31,36 +31,36 @@ This is gem for help to point on google map. You can marker your address and sea
 		<%= show_map_helper your_model %>
 		
 		Example:
-			<%= show_map_helper :users %>
+			<%= show_map_helper user %>
 			
 			
 ### You can set options for view
 	
 #### You can set "width" , "height" for map view
-		<%= show_map_helper :users, {width: 400, height: 200} %>
+		<%= show_map_helper user, {width: 400, height: 200} %>
 			
 #### You can set "searchbox_with" for search box
-		<%= show_map_helper :users, {searchbox_width: 300} %>
+		<%= show_map_helper user, {searchbox_width: 300} %>
 		
 #### You can show or hide your search box
-		<%= show_map_helper :users, {searchbox: 'show', width: 400, height: 200, searchbox_width: 300} %>
+		<%= show_map_helper user, {searchbox: 'show', width: 400, height: 200, searchbox_width: 300} %>
 			
 	and when you want to hide the search box
-		<%= show_map_helper :users, {searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
+		<%= show_map_helper user, {searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
 			
 #### You can only set show or point to map using attribute "allow"
-		<%= show_map_helper :users, {allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
+		<%= show_map_helper user, {allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
 			
 	and when you want to point
-		<%= show_map_helper :users, {allow: 'point', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
+		<%= show_map_helper user, {allow: 'point', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
 			
 	Example:
-		<%= show_map_helper :users, {width: 400, height: 200, searchbox_width: 300} %>
+		<%= show_map_helper user, {width: 400, height: 200, searchbox_width: 300} %>
 		
 #### You can set latitude and longitude default for your place
 
-    <%= show_map_helper :users, {latitude: 1.3028, longitude: 103.35, allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
+    <%= show_map_helper user, {latitude: 1.3028, longitude: 103.35, allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
     
 #### You can set zoom for map
     
-    <%= show_map_helper :users, {zoom: 10, latitude: 1.3028, longitude: 103.35, allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
+    <%= show_map_helper user, {zoom: 10, latitude: 1.3028, longitude: 103.35, allow: 'show', searchbox: 'none', width: 400, height: 200, searchbox_width: 300} %>
