@@ -23,7 +23,7 @@ window.initJsMap = ->
   window.gmpoint_info_window.close()
   window.gmpoint_marker.setMap(window.gmpoint_map)
   if $("#gmpoint_map_allow").attr('value') == "point"
-    google.maps.event.addListener window.gmpoint_map, "click", (event) ->
+    google.maps.event.addListener window.gmpoint_marker, "click", (event) ->
       latlng = event.latLng
       window.geopoint_handle(latlng)
 
