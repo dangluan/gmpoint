@@ -8,9 +8,9 @@ source "http://rubygems.org"
 group :development do
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.2.1"
+  gem "bundler", "~> 1.3.5"
   gem "jeweler", "~> 1.8.4"
 end
-
+gem "jeweler", "~> 1.8.4"
 gem 'geocoder'
 gem 'new_responds_to_parent'
